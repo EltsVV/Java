@@ -1,7 +1,7 @@
 package org.game.eltsvv;
 
-import org.game.eltsvv.MessageConsole.MessageConsole;
-import org.game.eltsvv.MessageConsole.MessageService;
+import org.game.eltsvv.IO.Console.MessageConsole;
+import org.game.eltsvv.IO.Console.MessageService;
 
 public class GameController {
     private MessageService messageService = new MessageService(new MessageConsole());
@@ -11,12 +11,16 @@ public class GameController {
         if(scoreWin > 0)
             scoreWin = _scoreWin;
     }
+    public int getScoreWin() {
+        return scoreWin;
+    }
 
-    private void ShowCurrentFigure(Player p1) {
+
+    private void showCurrentFigure(Player p1) {
         messageService.sendToConsole(p1.getName() + ": выбросил " + p1.getCurrentFigure());
     }
 
-    private void SelectFigure(Player player1, Player player2){
+    private void selectFigure(Player player1, Player player2){
         player1.choiceFigure();
         player2.choiceFigure();
     }
@@ -31,32 +35,39 @@ public class GameController {
             return player2;
     }
 
-    public void Start(Player player1, Player player2) {
+    public void start(Player player1, Player player2) {
         int round = 0;
 
         while (true){
             round++;
-            SelectFigure(player1, player2);
+            selectFigure(player1, player2);
             Player roundWinner = beatsRound(player1, player2);
-            ShowCurrentFigure(player1);
-            ShowCurrentFigure(player2);
-            ShowWinner(roundWinner);
-            ShowScore(round, player1, player2);
-            if (roundWinner != null && roundWinner.getScore() == scoreWin)
+            showCurrentFigure(player1);
+            showCurrentFigure(player2);
+            showRoundWinner(roundWinner);
+            showScore(round, player1, player2);
+            if (roundWinner != null && roundWinner.getScore() == scoreWin) {
+                showWinner(roundWinner);
                 break;
+            }
         }
     }
 
-    private void ShowScore(int round, Player P1, Player P2) {
+    private void showScore(int round, Player P1, Player P2) {
+        messageService.sendToConsole("");
         messageService.sendToConsole("Раунд:"+ round+ " " + P1.getName()+" = "+ P1.getScore() +" VS "+ P2.getName()+" = "+ P2.getScore());
     }
 
-    private void ShowWinner(Player roundWinner) {
+    private void showRoundWinner(Player roundWinner) {
         if  (roundWinner == null)
             messageService.sendToConsole("Никто не выиграл");
         else{
             messageService.sendToConsole(roundWinner.getName() + " выиграл раунд ");
             roundWinner.setScore(roundWinner.getScore() + 1);
         }
+    }
+    private void showWinner(Player roundWinner) {
+        messageService.sendToConsole("");
+        messageService.sendToConsole(roundWinner.getName() + " - ПОБЕДИЛ!!!!");
     }
 }

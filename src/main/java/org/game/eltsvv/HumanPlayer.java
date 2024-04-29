@@ -1,7 +1,7 @@
 package org.game.eltsvv;
 
-import org.game.eltsvv.MessageConsole.MessageConsole;
-import org.game.eltsvv.MessageConsole.MessageService;
+import org.game.eltsvv.IO.Console.MessageConsole;
+import org.game.eltsvv.IO.Console.MessageService;
 
 import java.util.Scanner;
 

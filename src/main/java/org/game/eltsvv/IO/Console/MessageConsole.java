@@ -1,4 +1,4 @@
-package org.game.eltsvv.MessageConsole;
+package org.game.eltsvv.IO.Console;
 
 public class MessageConsole implements IMessageConsole {
     @Override
