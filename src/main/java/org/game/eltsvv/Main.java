@@ -7,7 +7,6 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-
         preMenu();
         int menuChoice;
         GameController gc = new GameController();
@@ -28,9 +27,15 @@ public class Main {
                 gc.setScoreWin(newScore);
                 messageService.sendToConsole("Кол-во побед для победы: " + gc.getScoreWin());
             }
-            else if (menuChoice == 0) break;
-        } while (menuChoice != 0);
+            else if (menuChoice == 0) {
+                messageService.sendToConsole("");
+                messageService.sendToConsole("Спасибо за выбор JP Game!");
+                break;
+            }
+        } while (true);
     }
+
+    private static final MessageService messageService = new MessageService(new MessageConsole());
 
     private static int getNumMenu() {
         Scanner in = new Scanner(System.in);
@@ -43,8 +48,6 @@ public class Main {
         } while (true);
         return numMenu;
     }
-    private static MessageService messageService = new MessageService(new MessageConsole());
-
 
     private static void preMenu(){
         System.out.print("\033[H\033[2J");
@@ -62,6 +65,3 @@ public class Main {
 
     }
 }
-
-
-

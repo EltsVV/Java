@@ -54,8 +54,9 @@ public class GameController {
     }
 
     private void showScore(int round, Player P1, Player P2) {
-        messageService.sendToConsole("");
+        messageService.sendToConsole("\u001B[32m");
         messageService.sendToConsole("Раунд:"+ round+ " " + P1.getName()+" = "+ P1.getScore() +" VS "+ P2.getName()+" = "+ P2.getScore());
+        messageService.sendToConsole("\u001B[0m");
     }
 
     private void showRoundWinner(Player roundWinner) {
@@ -67,7 +68,6 @@ public class GameController {
         }
     }
     private void showWinner(Player roundWinner) {
-        messageService.sendToConsole("");
-        messageService.sendToConsole(roundWinner.getName() + " - ПОБЕДИЛ!!!!");
+        messageService.sendToConsole("\u001B[31m" +roundWinner.getName() + " - ПОБЕДИЛ!!!!\u001B[0m");
     }
 }
