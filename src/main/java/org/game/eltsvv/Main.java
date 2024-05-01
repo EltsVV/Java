@@ -3,7 +3,7 @@ package org.game.eltsvv;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.game.eltsvv.IO.Console.MessageConsole;
 import org.game.eltsvv.IO.Console.MessageService;
-import org.game.eltsvv.Player.HighScoreTable;
+import org.game.eltsvv.Player.HumanHighScoreTable;
 import org.game.eltsvv.Player.HumanPlayer;
 import org.game.eltsvv.Player.PCPlayer;
 import org.game.eltsvv.Player.Player;
@@ -15,7 +15,7 @@ public class Main {
         preMenu();
         int menuChoice;
         GameController gc = new GameController();
-        HighScoreTable highScoreTable = new HighScoreTable();
+        HumanHighScoreTable highScoreTable = new HumanHighScoreTable();
         do {
             gameMenu();
             menuChoice= getNumMenu();

@@ -11,10 +11,10 @@ import org.game.eltsvv.IO.JSON.JSONService;
 import java.util.LinkedList;
 import java.util.List;
 
-public class HighScoreTable {
+public class HumanHighScoreTable {
     private static List<HumanPlayer> list = new LinkedList<>();
 
-    public HighScoreTable () {
+    public HumanHighScoreTable() {
         LoadHighScoreList(writeFileService.readFile());
     }
 
