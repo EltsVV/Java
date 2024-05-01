@@ -37,9 +37,8 @@ public class GameController {
             return player2;
     }
 
-    public void start(Player player1, Player player2) {
+    public Player start(Player player1, Player player2) {
         int round = 0;
-
         while (true){
             round++;
             selectFigure(player1, player2);
@@ -50,8 +49,7 @@ public class GameController {
             showScore(round, player1, player2);
             if (roundWinner != null && roundWinner.getScore() == scoreWin) {
                 showWinner(roundWinner);
-                addWinnerHighScore(roundWinner);
-                break;
+                return roundWinner;
             }
         }
     }
@@ -75,15 +73,15 @@ public class GameController {
         messageService.sendToConsole("\u001B[31m" +roundWinner.getName() + " - ПОБЕДИЛ!!!!\u001B[0m");
     }
 
-    public void printHighScore() {
-        Player.printHighScore();
+    /*public void printHighScore() {
+        highScoreTable.printHighScore();
     }
 
     private void addWinnerHighScore(Player winner) {
-        winner.addWinnerHighScore();
+        highScoreTable.addWinnerHighScore(winner);
     }
 
     public void saveBeforeExit() {
-        Player.saveWinnerHighScore();
-    }
+        highScoreTable.saveWinnerHighScore();
+    }*/
 }

@@ -1,6 +1,7 @@
 package org.game.eltsvv.IO.JSON;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import org.game.eltsvv.Player.HumanPlayer;
 
 import java.io.IOException;
 import java.util.List;
@@ -12,7 +13,7 @@ public class JSONService<T> {
         iJSON= _iJSON;
     }
 
-    public List<T> getList(String jsonString) throws JsonProcessingException {
+    public List<HumanPlayer> getList(String jsonString) throws JsonProcessingException {
        return iJSON.getList(jsonString);
     }
 

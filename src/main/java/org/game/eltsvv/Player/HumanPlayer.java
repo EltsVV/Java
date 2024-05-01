@@ -1,7 +1,6 @@
 package org.game.eltsvv.Player;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import org.game.eltsvv.Figure;
 import org.game.eltsvv.IO.Console.MessageConsole;
 import org.game.eltsvv.IO.Console.MessageService;
 

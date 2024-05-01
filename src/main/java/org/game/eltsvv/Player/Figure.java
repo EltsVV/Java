@@ -1,4 +1,4 @@
-package org.game.eltsvv;
+package org.game.eltsvv.Player;
 
 import java.util.Map;
 import java.util.Random;

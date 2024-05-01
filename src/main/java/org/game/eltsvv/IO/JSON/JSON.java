@@ -1,7 +1,9 @@
 package org.game.eltsvv.IO.JSON;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.game.eltsvv.Player.HumanPlayer;
 
 import java.io.IOException;
 import java.io.StringWriter;
@@ -11,8 +13,8 @@ public class JSON<T> implements IJSON<T> {
     private final ObjectMapper mapper = new ObjectMapper();
 
     @Override
-    public List<T> getList(String jsonString) throws JsonProcessingException {
-        return mapper.readValue(jsonString,  List.class);
+    public List<HumanPlayer> getList(String jsonString) throws JsonProcessingException {
+        return mapper.readValue(jsonString,  new TypeReference<List<HumanPlayer>>(){});
 
     }
 
