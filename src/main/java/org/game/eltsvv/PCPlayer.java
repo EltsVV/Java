@@ -6,6 +6,9 @@ public class PCPlayer extends Player {
         super(Name);
     }
 
+    PCPlayer() {
+        super("Name");
+    }
     @Override
     public void choiceFigure() {
         setCurrentFigure(Figure.getFigure());

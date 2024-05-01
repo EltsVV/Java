@@ -1,0 +1,1 @@
+[{"name":"Vova3","total_score":2},{"name":"Vova","total_score":1},{"name":"Vova2","total_score":1}]

@@ -1,17 +1,22 @@
 package org.game.eltsvv;
 
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import org.game.eltsvv.IO.Console.MessageConsole;
 import org.game.eltsvv.IO.Console.MessageService;
 
 import java.util.Scanner;
 
+//@AllArgsConstructor
+//@NoArgsConstructor
+//@Builder
+@JsonPropertyOrder({"name", "score"})
 public class HumanPlayer extends Player {
 
     HumanPlayer(String name) {
         super(name);
     }
-
-    public static HumanPlayer getNewPlayer() {
+    HumanPlayer() {super(" ");}
+    public static HumanPlayer createNewPlayer() {
         MessageService messageService = new MessageService(new MessageConsole());
         messageService.sendToConsole("Введите ваше имя");
         Scanner in = new Scanner(System.in);
@@ -38,5 +43,6 @@ public class HumanPlayer extends Player {
 
         setCurrentFigure(tmpFigure);
     }
+
 
 }

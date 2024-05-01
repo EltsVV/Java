@@ -3,10 +3,13 @@ package org.game.eltsvv;
 import org.game.eltsvv.IO.Console.MessageConsole;
 import org.game.eltsvv.IO.Console.MessageService;
 
+import java.util.List;
+
+
 public class GameController {
     private MessageService messageService = new MessageService(new MessageConsole());
     private int scoreWin = 3;
-
+    private List pl;
     public void setScoreWin(int _scoreWin){
         if(scoreWin > 0)
             scoreWin = _scoreWin;
@@ -69,5 +72,10 @@ public class GameController {
     }
     private void showWinner(Player roundWinner) {
         messageService.sendToConsole("\u001B[31m" +roundWinner.getName() + " - ПОБЕДИЛ!!!!\u001B[0m");
+    }
+
+    public void printHighScore() {
+        pl = Player.getHighScore();
+        Player.printHighScore();
     }
 }
