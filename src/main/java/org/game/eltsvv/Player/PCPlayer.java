@@ -1,14 +1,13 @@
-package org.game.eltsvv;
+package org.game.eltsvv.Player;
+
+import org.game.eltsvv.Figure;
 
 public class PCPlayer extends Player {
 
-    PCPlayer(String Name) {
+    public PCPlayer(String Name) {
         super(Name);
     }
 
-    PCPlayer() {
-        super("Name");
-    }
     @Override
     public void choiceFigure() {
         setCurrentFigure(Figure.getFigure());

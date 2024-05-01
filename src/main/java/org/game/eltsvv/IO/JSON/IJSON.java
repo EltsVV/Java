@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.util.List;
 
 public interface IJSON<T> {
-    public List<T> getList(String jsonString) throws JsonProcessingException;
-    public String getJSON (List<T> list) throws IOException;
+    List<T> getList(String jsonString) throws JsonProcessingException;
+
+    String getJSON (List<T> list) throws IOException;
 }

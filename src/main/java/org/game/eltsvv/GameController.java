@@ -2,22 +2,21 @@ package org.game.eltsvv;
 
 import org.game.eltsvv.IO.Console.MessageConsole;
 import org.game.eltsvv.IO.Console.MessageService;
-
-import java.util.List;
-
+import org.game.eltsvv.Player.Player;
 
 public class GameController {
-    private MessageService messageService = new MessageService(new MessageConsole());
+    private final MessageService messageService = new MessageService(new MessageConsole());
+
     private int scoreWin = 3;
-    private List pl;
+
     public void setScoreWin(int _scoreWin){
         if(scoreWin > 0)
             scoreWin = _scoreWin;
     }
+
     public int getScoreWin() {
         return scoreWin;
     }
-
 
     private void showCurrentFigure(Player p1) {
         messageService.sendToConsole(p1.getName() + ": выбросил " + p1.getCurrentFigure());
@@ -51,6 +50,7 @@ public class GameController {
             showScore(round, player1, player2);
             if (roundWinner != null && roundWinner.getScore() == scoreWin) {
                 showWinner(roundWinner);
+                addWinnerHighScore(roundWinner);
                 break;
             }
         }
@@ -70,12 +70,20 @@ public class GameController {
             roundWinner.setScore(roundWinner.getScore() + 1);
         }
     }
+
     private void showWinner(Player roundWinner) {
         messageService.sendToConsole("\u001B[31m" +roundWinner.getName() + " - ПОБЕДИЛ!!!!\u001B[0m");
     }
 
     public void printHighScore() {
-        pl = Player.getHighScore();
         Player.printHighScore();
+    }
+
+    private void addWinnerHighScore(Player winner) {
+        winner.addWinnerHighScore();
+    }
+
+    public void saveBeforeExit() {
+        Player.saveWinnerHighScore();
     }
 }

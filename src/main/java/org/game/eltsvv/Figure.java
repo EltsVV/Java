@@ -4,7 +4,7 @@ import java.util.Map;
 import java.util.Random;
 import java.util.Set;
 
-enum  Figure {
+public enum  Figure {
 
     Камень, Ножницы, Бумага, Колодец;
 

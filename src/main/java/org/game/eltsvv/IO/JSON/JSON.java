@@ -9,6 +9,7 @@ import java.util.List;
 
 public class JSON<T> implements IJSON<T> {
     private final ObjectMapper mapper = new ObjectMapper();
+
     @Override
     public List<T> getList(String jsonString) throws JsonProcessingException {
         return mapper.readValue(jsonString,  List.class);

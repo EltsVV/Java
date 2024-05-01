@@ -3,10 +3,15 @@ package org.game.eltsvv.IO.File;
 import java.io.*;
 
 public class FileIO implements IFileIO{
+    private String fileName;
+
+    public FileIO(String _fileName) {
+        fileName = _fileName;
+    }
 
     @Override
     public void writeFile(String item) {
-        try(FileOutputStream fos=new FileOutputStream("notes.txt"))
+        try(FileOutputStream fos=new FileOutputStream(fileName))
         {
             // перевод строки в байты
             byte[] buffer = item.getBytes();
@@ -26,7 +31,7 @@ public class FileIO implements IFileIO{
         String str = "";
         StringWriter writer = new StringWriter();
 
-        try(FileInputStream fin=new FileInputStream("notes.txt"))
+        try(FileInputStream fin=new FileInputStream(fileName))
         {
             int i;
             while((i=fin.read())!=-1) {

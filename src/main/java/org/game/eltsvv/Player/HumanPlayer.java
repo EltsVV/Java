@@ -1,6 +1,7 @@
-package org.game.eltsvv;
+package org.game.eltsvv.Player;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import org.game.eltsvv.Figure;
 import org.game.eltsvv.IO.Console.MessageConsole;
 import org.game.eltsvv.IO.Console.MessageService;
 
@@ -15,7 +16,10 @@ public class HumanPlayer extends Player {
     HumanPlayer(String name) {
         super(name);
     }
-    HumanPlayer() {super(" ");}
+    private HumanPlayer() {
+        super("");
+    }
+
     public static HumanPlayer createNewPlayer() {
         MessageService messageService = new MessageService(new MessageConsole());
         messageService.sendToConsole("Введите ваше имя");
@@ -43,6 +47,5 @@ public class HumanPlayer extends Player {
 
         setCurrentFigure(tmpFigure);
     }
-
 
 }
